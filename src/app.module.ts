@@ -19,7 +19,7 @@ import { AchievementsModule } from './achievements/achievements.module';
         type: 'postgres',
         url: cfg.get('DATABASE_URL'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: cfg.get('NODE_ENV') !== 'production', // migrations in prod
+        synchronize: true
         logging: cfg.get('NODE_ENV') === 'development',
       }),
     }),
