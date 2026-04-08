@@ -30,6 +30,7 @@ import { AchievementsModule } from './achievements/achievements.module';
     GameEngineModule,
     ShopModule,
     AchievementsModule,
+    SeedModule,
   ],
 })
 export class AppModule {}
