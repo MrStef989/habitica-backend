@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { SeedModule } from './database/seed.module';
+
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TasksModule } from './tasks/tasks.module';
@@ -19,18 +20,18 @@ import { AchievementsModule } from './achievements/achievements.module';
         type: 'postgres',
         url: cfg.get('DATABASE_URL'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true
-        logging: cfg.get('NODE_ENV') === 'development',
+        synchronize: true,
+        logging: false,
       }),
     }),
     ScheduleModule.forRoot(),
+    SeedModule,
     AuthModule,
     UsersModule,
     TasksModule,
     GameEngineModule,
     ShopModule,
     AchievementsModule,
-    SeedModule,
   ],
 })
 export class AppModule {}
